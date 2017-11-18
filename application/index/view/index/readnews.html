@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+{include file="index/header" title="ZZ - News"}
+<body>
+  <div class="container form-div">
+    <h3>{$news.news_title}</h3>
+    <a href="/news/edit/{$news.news_author}/{$news.publish_time}" class="btn btn-default">Edit</a>
+    <h5>{$news.latest_update} - {$news.news_author}</h5>
+    <p>{$news.news_content}</p>
+  </div>
+</body>
+{include file="index/footer"}
+</html>

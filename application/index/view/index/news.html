@@ -4,17 +4,26 @@
 <body>
 	<div class="container-fluid dashboard-left">
 		<ul class="nav nav-pills nav-stacked">
-			<li class="active"><a href="#">NEWS</a></li>
+			<li class="active"><a href="/dashboard/news">NEWS</a></li>
 		</ul>
 	</div>
-	<div class="container-fluid text-center dashboard-right">
-		<div class="news-controls">
+	<div class="container-fluid dashboard-right">
+		<div class="news-controls form-div">
+			<form action="/news/search" method="get">
+				<label for="news_title">Title: </label>
+				<input type="text" name="news_title" id="news_title" value="news">
+				<input type="submit" class="btn btn-default" name="news-search" value="Search">
+			</form>
 			<a href="/dashboard/publish" class="btn btn-info">Publish</a>
 		</div>
-		<div class="news-content">
-			<h3>News Titles</h3><a href="/news/edit"></a>
-			<h5>Publish Time - Author</h5>
-			<p>News Content</p>
+		<div class="news-list">
+			<p>{$result}</p>
+			{volist name="news" id="article"}
+			<a href="/news/read/{$article.news_author}/{$article.publish_time}"><h5>{$article.news_title}</h5></a>
+			<a href="/news/edit/{$article.news_author}/{$article.publish_time}" class="btn btn-default">Edit</a>
+			<h7>{$article.latest_update} - {$article.news_author}</h7>
+			<p>{$article.news_content}</p>
+			{/volist}
 		</div>
 	</div>
 </body>

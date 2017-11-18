@@ -22,6 +22,9 @@ return [
     'user/create' => 'user/create',
     'dashboard/news' => 'dashboard/news',
     'dashboard/publish' => 'dashboard/publish',
+    'news/search' => 'dashboard/searchnews', 
+    'news/read/:author/:publish_time' => 'dashboard/readnews', 
     'news/publish' => 'news/publish',
-    'news/edit/:author/:publish_time' => 'news/edit', 
+    'news/edit/:author/:publish_time' => 'news/editnews', 
+    'news/update/:author/:publish_time' => 'news/update', 
 ];

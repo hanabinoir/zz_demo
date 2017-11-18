@@ -11,16 +11,56 @@ use app\index\model\News;
 */
 class Dashboard extends Controller
 {
+	private $result = 'Results found: ';
 	
 	public function News()
 	{
 		$news = News::all();
-		return view('index/news');
+		$this->result .= count($news);
+
+		return view('index/news', [
+			'result' => $this->result, 
+			'news' => $news,
+		]);
+	}
+
+	public function SearchNews(Request $request)
+	{
+		$keywords = $request->param();
+		$title = $keywords['news_title'];
+
+		$news = News::where('news_title', 'like', $title)
+		->whereOr('news_title', 'like', $title.'%')
+		->whereOr('news_title', 'like', '%'.$title.'%')
+		->whereOr('news_title', 'like', '%'.$title)
+		->find();
+
+		var_dump($news);
+
+		$this->result .= count($news);
+
+		return view('index/news', [
+			'result' => $this->result, 
+			'news' => $news,
+		]);
 	}
 
 	public function Publish()
 	{
 		return view('index/publish');
+	}
+
+	public function ReadNews(Request $request)
+	{
+		$news_details = $request->param();
+		$news = News::where([
+			'news_author' => $news_details['author'], 
+			'publish_time' => $news_details['publish_time']
+		])->find();
+
+		return view('index/readnews', [
+			'news' => $news,
+		]);
 	}
 
 	public function Edit($author, $publish_time)

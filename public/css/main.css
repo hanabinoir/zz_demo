@@ -1,13 +1,23 @@
 .form-div {
+	width: 50%;
 	margin-top: 50px;
 }
 
 .dashboard-left {
 	width: 30%;
-	float: left;
+	padding-right: 15px;
 	background-color: gray;
+	float: left;
 }
 
 .dashboard-right {
 	width: 70%;
+}
+
+.news-controls {
+	padding: 5px;
+}
+
+.news-list {
+	margin-top: 5px;
 }
