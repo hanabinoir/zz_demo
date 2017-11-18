@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+{include file="index/header" title="ZZ - News Publish"}
+<body>
+	<div class="container text-center form-div">
+		<form method="post" action="/news/publish">
+			<div class="form-group">
+				<label for="news-title">Title: </label>
+				<input type="text" name="news-title" id="news-title">
+			</div>
+			<div class="form-group">
+				<label for="news-author">Author: </label>
+				<input type="text" name="news-author" id="news-author">
+			</div>
+			<div class="form-group">
+				<label for="news-content">Content: </label>
+				<input type="textarea" name="news-content" id="news-content">
+			</div>
+			<input type="submit" name="publish" value="Publish">
+		</form>
+	</div>
+</body>
+{include file="index/footer"}
+</html>

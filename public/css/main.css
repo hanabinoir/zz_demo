@@ -1,0 +1,13 @@
+.form-div {
+	margin-top: 50px;
+}
+
+.dashboard-left {
+	width: 30%;
+	float: left;
+	background-color: gray;
+}
+
+.dashboard-right {
+	width: 70%;
+}
