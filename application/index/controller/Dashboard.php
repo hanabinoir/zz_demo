@@ -29,13 +29,8 @@ class Dashboard extends Controller
 		$keywords = $request->param();
 		$title = $keywords['news_title'];
 
-		$news = News::where('news_title', 'like', $title)
-		->whereOr('news_title', 'like', $title.'%')
-		->whereOr('news_title', 'like', '%'.$title.'%')
-		->whereOr('news_title', 'like', '%'.$title)
-		->find();
-
-		var_dump($news);
+		$news = News::where('news_title', 'like', $title.'%')
+		->select();
 
 		$this->result .= count($news);
 
